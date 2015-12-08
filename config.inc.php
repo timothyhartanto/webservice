@@ -1,24 +1,16 @@
-<?php 
-
-    // These variables define the connection information for your MySQL database 
-    $username = "proto";
+<?php
+	$username = "proto";
 	$password = "p4ntekmandeLu";
 	$host = "localhost";
 	$dbname = "webservice1";
 
-// UTF-8 is a character encoding scheme that allows you to conveniently store 
+	// UTF-8 is a character encoding scheme that allows you to conveniently store 
     // a wide varienty of special characters, like ¢ or €, in your database. 
     // By passing the following $options array to the database connection code we 
     // are telling the MySQL server that we want to communicate with it using UTF-8 
-    // See Wikipedia for more information on UTF-8: 
-    // http://en.wikipedia.org/wiki/UTF-8 
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
      
-    // A try/catch statement is a common method of error handling in object oriented code. 
-    // First, PHP executes the code within the try block.  If at any time it encounters an 
-    // error while executing that code, it stops immediately and jumps down to the 
-    // catch block.  For more detailed information on exceptions and try/catch blocks: 
-    // http://us2.php.net/manual/en/language.exceptions.php 
+
     try 
     { 
         // This statement opens a connection to your database using the PDO library 

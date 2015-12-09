@@ -19,11 +19,6 @@ if (!empty($_POST)) {
         $stmt   = $db->prepare($query);
         $result = $stmt->execute($query_params);
     }
-    catch (PDOException $ex) {
-        // For testing, you could use a die and message. 
-        //die("Failed to run query: " . $ex->getMessage());
-        
-        //or just use this use this one:
         $response["success"] = 0;
         $response["message"] = "Database Error. Couldn't add post!";
         die(json_encode($response));

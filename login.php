@@ -24,10 +24,6 @@ if (!empty($_POST)) {
         $result = $stmt->execute($query_params);
     }
     catch (PDOException $ex) {
-        // For testing, you could use a die and message. 
-        //die("Failed to run query: " . $ex->getMessage());
-        
-        //or just use this use this one to product JSON data:
         $response["success"] = 0;
         $response["message"] = "Database Error1. Please Try Again!";
         die(json_encode($response));
@@ -41,8 +37,6 @@ if (!empty($_POST)) {
     //fetching all the rows from the query
     $row = $stmt->fetch();
     if ($row) {
-        //if we encrypted the password, we would unencrypt it here, but in our case we just
-        //compare the two passwords
         if ($_POST['password'] === $row['password']) {
             $login_ok = true;
         }

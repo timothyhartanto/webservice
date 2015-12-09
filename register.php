@@ -114,10 +114,10 @@ if (!empty($_POST)) {
 	<h1>Register</h1> 
 	<form action="register.php" method="post"> 
 	    Username:<br /> 
-	    <input type="text" name="username" value="" /> 
+	    <input type="text" name="username" placeholder="Username" value="" /> 
 	    <br />
 	    Password:<br /> 
-	    <input type="password" name="password" value="" /> 
+	    <input type="password" name="password" placeholder="Password" value="" /> 
 	    <br /><br /> 
 	    <input type="submit" value="Register New User" /> 
 	</form>

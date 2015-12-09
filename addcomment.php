@@ -1,6 +1,6 @@
 <?php
 
-//load and connect to MySQL database stuff
+//load and connect to MySQL database
 require("config.inc.php");
 
 if (!empty($_POST)) {
@@ -19,6 +19,7 @@ if (!empty($_POST)) {
         $stmt   = $db->prepare($query);
         $result = $stmt->execute($query_params);
     }
+    catch (PDOException $ex) {
         $response["success"] = 0;
         $response["message"] = "Database Error. Couldn't add post!";
         die(json_encode($response));

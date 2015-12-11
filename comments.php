@@ -20,9 +20,26 @@ catch (PDOException $ex) {
     die(json_encode($response));
 }
 
+?>
+
+
+<html>
+<body>
+
+	<table>
+	<thead>
+		<tr>
+			<th>Username</th>
+			<th>Title</th>
+			<th>Message</th>
+
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+
 // Finally, we can retrieve all of the found rows into an array using fetchAll 
 $rows = $stmt->fetchAll();
-
 
 if ($rows) {
     $response["success"] = 1;
@@ -36,13 +53,19 @@ if ($rows) {
         $post["title"]    = $row["title"];
         $post["message"]  = $row["message"];
         
-        
+		echo
+		"<tr>
+          <td>{$row['username']}</td>
+          <td>{$row['title']}</td>
+		  <td>{$row['message']}</td>
+        </tr>";
+	
         //update our repsonse JSON data
         array_push($response["posts"], $post);
     }
     
     // echoing JSON response
-    echo json_encode($response);
+    //echo json_encode($response);
     
     
 } else {
@@ -52,3 +75,13 @@ if ($rows) {
 }
 
 ?>
+
+        
+       
+  
+        </tbody>
+    </table>
+
+
+</body>
+</html>

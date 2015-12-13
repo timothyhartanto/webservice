@@ -32,8 +32,8 @@ if (!empty($_POST)) {
     
     //This will be the variable to determine whether or not the user's information is correct.
     //we initialize it as false.
-    $validated_info = false;
-    
+	$login_ok = false;
+	
     //fetching all the rows from the query
     $row = $stmt->fetch();
     if ($row) {
@@ -47,7 +47,7 @@ if (!empty($_POST)) {
     if ($login_ok) {
         $response["success"] = 1;
         $response["message"] = "Login successful!";
-	//	header("Location:addcomment.php"); //IF success, move to add comment page
+		//header("Location:addcomment.php"); //IF success, move to add comment page
         die(json_encode($response));
     } else {
         $response["success"] = 0;
@@ -59,16 +59,15 @@ if (!empty($_POST)) {
 		<h1>Login</h1> 
 		<form action="login.php" method="post"> 
 		    Username:<br /> 
-		    <input type="text" name="username" placeholder="Username" value=""/> 
+		    <input type="text" name="username" placeholder="Username" /> 
 		    <br /><br /> 
 		    Password:<br /> 
-		    <input type="password" name="password" placeholder="Password" value="" /> 
+		    <input type="password" name="password" placeholder="Password" /> 
 		    <br /><br /> 
 		    <input type="submit" value="Login" /> 
 		</form> 
 		<a href="register.php">Register</a>
 	<?php
-	
 	
 }
 

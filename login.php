@@ -47,8 +47,8 @@ if (!empty($_POST)) {
     if ($login_ok) {
         $response["success"] = 1;
         $response["message"] = "Login successful!";
-		header("Location:addcomment.php"); //IF success, move to add comment page
-        //die(json_encode($response));
+	//	header("Location:addcomment.php"); //IF success, move to add comment page
+        die(json_encode($response));
     } else {
         $response["success"] = 0;
         $response["message"] = "Invalid Credentials!";
